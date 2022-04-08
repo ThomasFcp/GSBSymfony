@@ -2,18 +2,81 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
-
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
+       <link rel="stylesheet" href="{{asset('/css/sio.css')}}">
+        <link rel="stylesheet" href="{{asset('/css/css/bootstrap.min.css')}}">
+       <link rel="stylesheet" href="{{asset('/css/css/bootstrap.css')}}">
+      {% block stylesheets %}{% endblock %}
+        
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body class="body">
+        <div class="titre">
+    <center><h1>{% block title %}Présentation sio{% endblock %}</h1></Center>
+        </div>
+        <div class="image">
+        <img src="{{asset('/image/btsSio.png')}}" alt="le logo">
+        </div>
+
+       <div  class="row">
+           
+            <div class="col-3">   
+                <div class="entete">
+                 {% block Entete %}
+
+                     <ul>
+                         <li><a href="{{ path("lesCadurciens") }}">les Cadurciens</a>
+                         <li><a href="{{ path("UtilisateursAyantFrais") }}">Ayant Frais</a>
+                         <li><a href="{{ path("UtilisateursAyantPasFrais") }}">N'ayant Pas Frais</a>
+                         <li><a href="{{ path("NombreDeFrais") }}">Nombre De Frais</a>
+
+
+
+                 <br>
+                 <br>
+
+                    
+                 {% endblock %}
+                 </div>
+            </div>
+                <div class="col-9">
+                    <div class="contenu">
+                     {% block Contenu %}
+
+                        <p>Intéressé(e) par les technologies de l’informatique, 
+                            vous faites preuve de curiosité intellectuelle,
+                            de rigueur et d'aptitude à la communication en français et en anglais.
+                            <br>
+                        Vous etes au bonne endroit ! </p>
+                            <br>
+                            
+                            
+                        <h1 class="h1"> Les attendus de parcours sup : </h1>
+                            <br>
+                                <p>
+                                    S'intéresser aux secteurs des applications informatiques et des réseaux
+                                    <br>
+                                    Disposer de compétences relationnelles pour la mise en oeuvre de solutions techniques en relation avec les besoins d'entreprises clientes
+                                    <br>
+                                    Disposer de compétences pour suivre les évolutions technologiques informatiques, en français et en anglais
+                                    <br>
+                                    S'intéresser au management des entreprises et à leur environnement économique et juridique
+                                    <br>
+                                    Disposer de compétences pour le travail en équipe
+                                    <br>
+                                    Disposer de capacités d'organisation et d'autonomie
+                                </p>
+                    {% endblock %}
+                    </div>
+                </div>
+       </div>
+       <div class="footer">
+        {% block Footer %}
+           <footer>
+               <center><p>copyright 2021 all rights reserved</p></center>
+           </footer>
+        {% endblock %}
+       </div>
+
+
+
     </body>
 </html>
